@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+  @State var isRotating = false
+  @State var isHidden = false
+  
   var body: some View {
     VStack {
       Rectangle()
@@ -23,6 +26,12 @@ struct ContentView: View {
         .cornerRadius(4)
     }
     .padding()
+    .onTapGesture {
+      withAnimation {
+        isRotating.toggle()
+        isHidden.toggle()
+      }
+    }
   }
 }
 
